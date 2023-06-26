@@ -123,6 +123,47 @@
             // On Failure
             callback("", "error reason");
         }
+
+    // EVENT LISTNER CART VALUE
+     
+     document.addEventListener('DOMContentLoaded', function() {
+      var cartValueElement = document.getElementById('cartValue');
+      var addButton1 = document.getElementById('addToCart1');
+      var addButton2 = document.getElementById('addToCart2');
+      var addButton3 = document.getElementById('addToCart3');
+      var addButton4 = document.getElementById('addToCart4');
+      
+      addButton1.addEventListener('click', function() {
+        console.log(cartValueElement);
+        var currentCartValue = parseInt(cartValueElement.innerHTML);
+        var newCartValue = currentCartValue + 1;
+        cartValueElement.innerHTML = newCartValue;
+      });
+
+      addButton2.addEventListener('click', function() {
+        console.log(cartValueElement);
+        var currentCartValue = parseInt(cartValueElement.innerHTML);
+        var newCartValue = currentCartValue + 1;
+        cartValueElement.innerHTML = newCartValue;
+      });
+
+      addButton3.addEventListener('click', function() {
+        console.log(cartValueElement);
+        var currentCartValue = parseInt(cartValueElement.innerHTML);
+        var newCartValue = currentCartValue + 1;
+        cartValueElement.innerHTML = newCartValue;
+      });
+
+      addButton4.addEventListener('click', function() {
+        console.log(cartValueElement);
+        var currentCartValue = parseInt(cartValueElement.innerHTML);
+        var newCartValue = currentCartValue + 1;
+        cartValueElement.innerHTML = newCartValue;
+      });
+
+
+    
+    });
           
   </script>
 </body> 
