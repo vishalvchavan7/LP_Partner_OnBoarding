@@ -153,3 +153,7 @@ header{
   top: 10;
   right: 195px;
 }
+
+#totalCost{
+  display: none;
+}
