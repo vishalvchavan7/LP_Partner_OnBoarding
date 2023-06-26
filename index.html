@@ -45,35 +45,35 @@
       <div class="product-box">
         <img src="img/product1.jpg" alt="" class="product-img">
         <h2 class="product-title">Ring</h2>
-        <span class="price"> ₹ 32,790</span>
+        <span class="price"> ₹ 30,000</span>
         <p><button id="addToCart1">Add to Cart</button></p>
       </div>
       <!--Box-2-->
       <div class="product-box">
         <img src="img/product2.jpg" alt="" class="product-img">
         <h2 class="product-title">NeckLace</h2>
-        <span class="price"> ₹ 28,42,827</span>
+        <span class="price"> ₹ 40,000</span>
         <p><button id="addToCart2">Add to Cart</button></p>
       </div>
       <!--Box-3-->
       <div class="product-box">
         <img src="img/product3.jpg" alt="" class="product-img">
         <h2 class="product-title">Earrings</h2>
-        <span class="price"> ₹ 18,999</span>
+        <span class="price"> ₹ 20,000</span>
         <p><button id="addToCart3">Add to Cart</button></p>
       </div>
       <!--Box-4-->
       <div class="product-box">
         <img src="img/product4.jpg" alt="" class="product-img">
         <h2 class="product-title">Gold Biscuit</h2>
-        <span class="price"> ₹ 1,70,857</span>
+        <span class="price"> ₹ 70,000</span>
         <p><button id="addToCart4">Add to Cart</button></p>
       </div>
       <!--Box-5-->
       <!-- <div class="product-box">
         <img src="img/product5.jpg" alt="" class="product-img">
         <h2 class="product-title">Bracelet</h2>
-        <span class="price">Rs.7500</span>
+        <span class="price">Rs.10,000</span>
         <i class='bx bx-shopping-bag add-cart'></i>
       </div> -->
       <!--Box-6-->
@@ -132,12 +132,14 @@
       var addButton2 = document.getElementById('addToCart2');
       var addButton3 = document.getElementById('addToCart3');
       var addButton4 = document.getElementById('addToCart4');
+      var totalCost = 0;
       
       addButton1.addEventListener('click', function() {
         console.log(cartValueElement);
         var currentCartValue = parseInt(cartValueElement.innerHTML);
         var newCartValue = currentCartValue + 1;
         cartValueElement.innerHTML = newCartValue;
+        var totalCost = totalCost+30000
         myFunctionSelect();
       });
 
@@ -169,7 +171,7 @@
         ///SDE PUSH TOTAL CART VALUE
     function myFunctionSelect() {
       
-      let title = document.title;
+      const title = document.title;
       let x = document.getElementById("cartValue").innerHTML;
       let y = Number(x);
       console.log(y);
@@ -179,11 +181,14 @@
       lpTag.sdes.push(
         {
           "type": "cart",  //MANDATORY
-          "total":y,
+          "total":totalCost,
+          "currency":"INR",
+          "numItems":y,
           "products":[{
             "product":{
               "name":title,
-            }
+              "category":"Ornaments"
+            },
           }]
    }
 );
