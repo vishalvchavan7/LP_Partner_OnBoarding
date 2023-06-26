@@ -138,6 +138,7 @@
         var currentCartValue = parseInt(cartValueElement.innerHTML);
         var newCartValue = currentCartValue + 1;
         cartValueElement.innerHTML = newCartValue;
+        myFunctionSelect();
       });
 
       addButton2.addEventListener('click', function() {
@@ -164,6 +165,29 @@
 
     
     });
+
+        ///SDE PUSH TOTAL CART VALUE
+    function myFunctionSelect() {
+      
+      let title = document.title;
+      let x = document.getElementById("cartValue").innerHTML;
+      let y = Number(x);
+      console.log(y);
+
+      
+      lpTag.sdes = lpTag.sdes||[];
+      lpTag.sdes.push(
+        {
+          "type": "cart",  //MANDATORY
+          "total":y,
+          "products":[{
+            "product":{
+              "name":title,
+            }
+          }]
+   }
+);
+    }
           
   </script>
 </body> 
