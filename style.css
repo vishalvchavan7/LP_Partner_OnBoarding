@@ -8,6 +8,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  padding: 0.3em;
 }
 :root{
   --main-color: #fd4646 ;
@@ -48,21 +49,23 @@ header{
   padding: 20px 0;
 }
 .logo{
-  font: size 1.1em;
+  font-size: 1.9em;
   color: var(--text-color);
-  font-weight:400
+  font-weight:500;
+
 
 }
 #cart-icon{
-  font: size 1.8em;
+  font-size: 1.8em;
   cursor: pointer;
 
 
 }
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.95rem;
   font-weight:600;
   text-align: center;
+    
 }
 
 .shop {
@@ -80,11 +83,7 @@ header{
   position: relative;
 }
 
-.product-box:hover{
-  padding: 10px;
-  border: 1px solid var(--text-color);
-  transition: 0.4s;
-}
+
 
 .product-img{
   width:100%;
@@ -100,7 +99,7 @@ header{
 }
 
 .price{
-  font-weight: 200;
+  font-weight: 700;
 }
 
 .add-cart{
@@ -115,4 +114,42 @@ header{
 
 .add-cart:hover{
   background: hsl(249,32%,17%)
+}
+
+.product-box button {
+	color: white;
+	background-color: #ffd700;
+	border: 5px solid transparent;
+	transition: .2s ease;
+	border-radius: 50px;
+  font-size: 1.0rem;
+
+}
+
+.product-box button:hover{
+  padding: 15px;
+  border: 1px solid var(--text-color);
+  transition: 0.4s;
+}
+#cartValue{
+  background-color: transparent;
+  color: #0f0707;
+  font-size: 35px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10;
+  right: 100px;
+}
+
+.cartRate{
+  background-color: rgba(255, 217, 0, 0.753);
+  color: black;
+  border-color: #0f0707;
+  font-size: 20px;
+  padding: 8px 17px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10;
+  right: 195px;
 }
