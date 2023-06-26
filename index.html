@@ -99,32 +99,28 @@
   </section>
  
   <script>
-     //   // Initialize the lpTag namespace and the identity array, if the identity function is placed above the tag.
-      // var lpTag = {};
-      //    lpTag.identities = [];   
-          lpTag.identities.push(identityFn);
-          function identityFn(callback) {
-            callback({
-              "sub": "+972-3-5555-555",
-              "iss": "https://jwt.io/",
-              "aud":"acc:qa57221676",
-              "exp": 1992025992,
-              "iat": 1682030954,
-              "acr": "loa1"
-          });
+      lpTag.identities.push(identityFn);
+      function identityFn(callback) {
+        callback({
+          "sub": "+972-3-5555-555",
+          "iss": "https://jwt.io/",
+          "aud":"acc:qa57221676",
+          "exp": 1992025992,
+          "iat": 1682030954,
+          "acr": "loa1"
+      });
+    }
+
+    var id_token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIrOTcyLTMtNTU1NS01NTUiLCJpc3MiOiJodHRwczovL2p3dC5pby8iLCJhdWQiOiJhY2M6cWE1NzIyMTY3NiIsImV4cCI6MTk5MjAyNTk5MiwiaWF0IjoxNjgyMDMwOTU0LCJhY3IiOiJsb2ExIn0.PlwjaRfrjGneMcYYmWt9pwuWaf6RPZqiSOFo1a5Vn6ZxrNjoSXyMbZfZ55fiT-M_iN4k9D8WGDQ6FK3u2V9rlBmpwB5gn7A46JnEa_BA_MDW0VrJKAmlxTBv6cYcRPR-Fpi6yDj_2o3h1CshjKumPNdVOi2T6YFGzpvKXaM_NAc9XCvgtbhK9iQ8mL7bhTBpyEDO9xBHqPFqTn7xlXSf-eMV9T9vmy5Xwr3NOD0A_3rgOPGAy36J1sLdMnr3ydqAn1kN1zBeI43c2nxqn_zHyIp4GuiafKVT2CW9AullSjrOZtrv0C4WljgnCR33wtX03hJhYhvnBLXBhJHp5heL4Q"
+    
+    function lpGetAuthenticationToken(callback) {
+            console.log("LP asked for id_token or auth code in Code Flow");
+            // Do your magic…
+            // On Success
+            callback(id_token);
+            // On Failure
+            callback("", "error reason");
         }
-
-
-        var id_token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIrOTcyLTMtNTU1NS01NTUiLCJpc3MiOiJodHRwczovL2p3dC5pby8iLCJhdWQiOiJhY2M6cWE1NzIyMTY3NiIsImV4cCI6MTk5MjAyNTk5MiwiaWF0IjoxNjgyMDMwOTU0LCJhY3IiOiJsb2ExIn0.PlwjaRfrjGneMcYYmWt9pwuWaf6RPZqiSOFo1a5Vn6ZxrNjoSXyMbZfZ55fiT-M_iN4k9D8WGDQ6FK3u2V9rlBmpwB5gn7A46JnEa_BA_MDW0VrJKAmlxTBv6cYcRPR-Fpi6yDj_2o3h1CshjKumPNdVOi2T6YFGzpvKXaM_NAc9XCvgtbhK9iQ8mL7bhTBpyEDO9xBHqPFqTn7xlXSf-eMV9T9vmy5Xwr3NOD0A_3rgOPGAy36J1sLdMnr3ydqAn1kN1zBeI43c2nxqn_zHyIp4GuiafKVT2CW9AullSjrOZtrv0C4WljgnCR33wtX03hJhYhvnBLXBhJHp5heL4Q"
-       // var id_token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndpTXlFRUVwTlVVcWVuWGdHd3hiMyJ9.eyJuaWNrbmFtZSI6InZjMDA4MjU4MTgiLCJuYW1lIjoidmMwMDgyNTgxOEB0ZWNobWFoaW5kcmEuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyL2VlNjU1ZGMwYzU1MGY1ZTI5MGI1NWE1MDZmNDQ5ZGY1P3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGdmMucG5nIiwidXBkYXRlZF9hdCI6IjIwMjMtMDQtMjZUMTg6NDE6MDguOTk1WiIsImVtYWlsIjoidmMwMDgyNTgxOEB0ZWNobWFoaW5kcmEuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vZGV2LXpnMTJ6c2J3LnVzLmF1dGgwLmNvbS8iLCJhdWQiOiJRbVZzdjlOUnIxREdvNWhlNGF0aFB6VktCZnU4RVFnQSIsImlhdCI6MTY4MjUzNDQ3MSwiZXhwIjoxNjgyNTcwNDcxLCJzdWIiOiJhdXRoMHw2NDQ3OGQ3NWVkOTgwOWIwNzA0MTFjMzkiLCJzaWQiOiJWYTV5Q2pwRURxbHRkWTk3RnpCYUFFX09jOVpmT3JHViIsIm5vbmNlIjoiUVRCUFZXRnhPQzV1V21JMk5qTjJRbEpHWkdOTUxtbFRWa2d1V0hjNFRUUmhVbEIxYWpaSGZtbGFVZz09In0.d6cemdAfEQux9s9V9ZmL2oOzdvltu_paGBeyVMbqf51P6r9pov-PaHyhLvMjGYelQGrQv_WZqF19RXoUZgOpzSwsc4g_yXfikqODufM66P-5a2E2M4v1DgS3l3B-NksXr7WGQwDABdN3-JuTBNNanhWwIfhD1UqDLCqMkzn4Tr90uS6KQEhP3T2vd7zahIvQEoK1_ofulNtEscG_73g3uuQtoRjkWHfNPWOUxw0DjteSQVjRXN0HcVK8YkxiTYoXMPtDxwdDLZSzuoC_WeArao5z_NOYsU0h3VjcL9advmto3AoxzV5c5gsA8QbWdAVZnzXmP4MdT9dOEXi-dmjSUg";
-        function lpGetAuthenticationToken(callback) {
-                console.log("LP asked for id_token or auth code in Code Flow");
-                // Do your magic…
-                // On Success
-                callback(id_token);
-                // On Failure
-                callback("", "error reason");
-            }
           
   </script>
 </body> 
