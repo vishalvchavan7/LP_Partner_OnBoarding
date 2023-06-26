@@ -99,7 +99,10 @@
   </section>
  
   <script>
-              lpTag.identities.push(identityFn);
+     //   // Initialize the lpTag namespace and the identity array, if the identity function is placed above the tag.
+       var lpTag = {};
+          lpTag.identities = [];   
+          lpTag.identities.push(identityFn);
           function identityFn(callback) {
             callback({
               "sub": "+972-3-5555-555",
