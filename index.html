@@ -32,6 +32,7 @@
       <!--Cart-Icon-->
       <span class="cartRate"> Cart Total </span>
       <span id='cartValue'>0</span>
+      <span id="totalCost">0</span>
       <input id="totalCost" type="hidden" name="totalCost" value="0">
       <i class='bx bx-shopping-bag' id="cart-icon"></i>
     </div>
@@ -128,8 +129,8 @@
     // EVENT LISTNER CART VALUE
      
      document.addEventListener('DOMContentLoaded', function() {
-      var cartValueElement = document.getElementById('cartValue');
-      var totalCost = document.getElementById('totalCost').value;
+      var cartValueElement = document.getElementById('cartValue'); //ZERO
+      var totalCostElement = document.getElementById('totalCost'); //ZERO
       var addButton1 = document.getElementById('addToCart1');
       var addButton2 = document.getElementById('addToCart2');
       var addButton3 = document.getElementById('addToCart3');
@@ -137,13 +138,15 @@
       
         
       addButton1.addEventListener('click', function() {
-        console.log(cartValueElement);
+        console.log("CartVALUE"+cartValueElement);
         var currentCartValue = parseInt(cartValueElement.innerHTML);
         var newCartValue = currentCartValue + 1;
         cartValueElement.innerHTML = newCartValue;////
-        
-        var newtotalCost = totalCost+30000;
-        totalCost = newtotalCost;        
+
+        console.log("CostVALUE"+totalCostElement);
+        var currentCostValue = parseInt(totalCostElement.innerHTML);
+        var newtotalCost = currentCostValue+400;
+        totalCostElement.innerHTML = newtotalCost;        
         myFunctionSelect();
       });
 
@@ -185,7 +188,7 @@
       lpTag.sdes.push(
         {
           "type": "cart",  //MANDATORY
-          "total":document.getElementById("totalCost").value,
+          "total":document.getElementById("totalCost").innerHTML,
           "currency":"INR",
           "numItems":y,
           "products":[{
