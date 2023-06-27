@@ -157,3 +157,16 @@ header{
 #totalCost{
   display: none;
 }
+
+.LoginButton {
+  background-color: gold;
+  border-radius: 50%;
+  border: 1px solid black;
+  color: rgb(0, 0, 0);
+  padding: 8px 17px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 40px 10px 465px;
+  cursor: pointer;
+}
